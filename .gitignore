@@ -1,52 +1,102 @@
-# Prerequisites
-*.d
+# Rider and Visual Studio specific files
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.DotSettings.user
+*.sln.DotSettings.user.lock
+*.csproj.user
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Build output
+obj/
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# NuGet packages
+*.nuget.props
+*.nuget.targets
 
-# Precompiled Headers
-*.gch
-*.pch
+# MSTest test Results
+TestResults/
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# Visual Studio code coverage results
+*.coverage
+*.coveragexml
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# OpenCover results
+OpenCover/
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# Resharper cache files
+_ReSharper.*
+*.[Rr]e[Ss]harper
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# TeamCity artifacts folder
+_TeamCity
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# GitVersion version tracking file
+.gitversion
+
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+
+# Installshield output folder
+[Ee]xpress/
+
+# DocProject generated documentation
+DocProject/buildhelp/
+DocProject/Help/*.HxT
+DocProject/Help/*.HxC
+DocProject/Help/*.hhc
+DocProject/Help/*.hhk
+DocProject/Help/*.hhp
+DocProject/Help/Html2
+DocProject/Help/html
+
+# Click-Once directory
+publish/
+
+# Publish Web Output
+*.Publish.xml
+*.pubxml
+*.pubxml.*
+
+# MSDeploy files
+*.wdproj
+*.wpp
+*.wpp.targets
+*.wpp.props
+*.pubxml
+*.publishproj
+
+# WebMatrix
+*.deploysettings
+
+# Wix Installer files
+*.wixproj
+*.wixobj
+*.wixpdb
+*.wixproj.*.user
+*.wixproj.user
+*.wixproj.bak
+
+# TFS 2012 Local Workspace
+$tf/
+
+# Guidance Automation Toolkit
+*.gpState
+
+# ReSharper and Visual Studio code style settings
+_dotnet-StyleCop.*
+*.DotSettings
+
+# JustCode settings
+.JustCode
+
+# Team Explorer temp files
+*.tp*
+
+# Xamarin Studio
+*.userprefs
+*.userprefs.bin

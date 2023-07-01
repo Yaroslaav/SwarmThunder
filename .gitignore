@@ -12,6 +12,7 @@
 
 # Build output
 obj/
+runtimes/
 
 # NuGet packages
 *.nuget.props

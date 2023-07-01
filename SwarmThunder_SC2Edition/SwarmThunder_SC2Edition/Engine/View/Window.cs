@@ -43,7 +43,7 @@ public class Window
         renderWindow.Close();
     }
     public Vector2f MapPixelToCoords(Vector2i position) => renderWindow.MapPixelToCoords(position);
-
+ 
 
     public Vector2i GetMousePosition() => Mouse.GetPosition(renderWindow);
     

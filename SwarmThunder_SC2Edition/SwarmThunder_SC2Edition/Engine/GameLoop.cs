@@ -66,6 +66,10 @@ public class GameLoop
     public void Stop()
     {
         isPlaying = false;
+        /*while (true)
+        {
+            
+        }*/
     }
     
     private void StartNextRound()

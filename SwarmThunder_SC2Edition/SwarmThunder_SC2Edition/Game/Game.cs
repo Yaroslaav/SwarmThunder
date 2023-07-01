@@ -98,7 +98,7 @@ public class Game
             case Turn.Your:
                 ownPlayer.SetSelectedSell(cell);
                 break;
-        }
+        }   
     }
 
     public void CheckMouseClick()
@@ -118,27 +118,28 @@ public class Game
     public void Update()
     {
         switch (turn)
-        {
+        { 
             case Turn.Enemy:
                 Input.GetBind("Shoot").OnKeyPress -= Shoot;
                 Shoot();
                 break;
             case Turn.Your:
-                Input.GetBind("Shoot").OnKeyPress += Shoot;
+                Input.GetBind("Shoot").OnKeyPress += Shoot; 
                 break;
         }
+        CheckScore();
     }
 
+
     public void Stop(Winner winner)
-    {
+    {   
         GameLoop.Instance.Stop();
         for (int i = 0; i < gameObjects.Count; i++)
         {
             UnRegisterGameObject(gameObjects[i]);
         }
-        //Console.WriteLine(File.Exists("Fonts/Arial-ItalicMT.ttf"));
         
-        Text winnerText = new(winner == Winner.You?"You Won":"Enemy Won", new Font("Fonts/Arial-ItalicMT.ttf"), 30);
+        Text winnerText = new(winner == Winner.You?"You Won":"Enemy Won", new Font(Path.Combine(Directory.GetCurrentDirectory (), "Fonts", "Arial.otf")), 30);
         winnerText.Position = new Vector2f(window.GetWindowCenter().X, window.GetWindowCenter().Y);
         winnerText.FillColor = winner == Winner.You?Color.Green:Color.Red;
     }
@@ -169,7 +170,7 @@ public class Game
                 ownPlayer.Shoot(enemyPlayer);
                 break;
         }
-        CheckScore();
+        
     }
 
     public void OnShoot()

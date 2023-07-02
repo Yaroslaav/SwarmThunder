@@ -12,11 +12,6 @@ public class GameLoop
     
     public Rounds rounds { get; private set; }
 
-    /*private Camera _camera
-    {
-        get => _game.mainCamera;
-    }
-*/
     public void Start()
     {
         if (Instance == null)
@@ -48,17 +43,22 @@ public class GameLoop
             Update();
             _game.Update();
                
-            _game.window.Draw(drawableObjects);
+            ReDrawObjects();
         }
         //rounds.TryStartNextRound();
     }
 
-    private void Update()
+    public void Update()
     {
         for (int i = 0; i < updatableObjects.Count; i++)
         {
             updatableObjects[i].Update();
         }
+    }
+
+    public void ReDrawObjects()
+    {
+        _game.window.Draw(drawableObjects);
     }
     
     
@@ -70,6 +70,7 @@ public class GameLoop
         {
             
         }*/
+
     }
     
     private void StartNextRound()

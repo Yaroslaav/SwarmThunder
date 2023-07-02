@@ -19,7 +19,7 @@ public class Camera
     
     public void SetupCamera()
     {
-        camera = new (new FloatRect(window.GetWindowCenter().X, window.GetWindowCenter().Y, GameSettings.windowWidth, GameSettings.windowHeight));
+        camera = new (new FloatRect(window.windowCenter.X, window.windowCenter.Y, GameSettings.windowWidth, GameSettings.windowHeight));
         camera.Zoom(0.5f);
     }
 

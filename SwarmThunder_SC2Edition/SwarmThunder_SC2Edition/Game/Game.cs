@@ -18,10 +18,13 @@ public class Game
 {
     public static Game instance { get; private set; }
 
+    private SaveLoad _saveLoad;
+    private Profiles _profiles;
+
     public Window window;
 
     public List<GameObject> gameObjects { get; private set; }
-
+    
 
     public Player ownPlayer;
     public Player enemyPlayer;
@@ -58,6 +61,9 @@ public class Game
         if(instance == null)
             instance = this;
         Time.Start();
+
+        _saveLoad = new();
+        _profiles = _saveLoad.LoadAllProfiles();
 
         AddBindings();
         
@@ -134,14 +140,21 @@ public class Game
     public void Stop(Winner winner)
     {   
         GameLoop.Instance.Stop();
-        for (int i = 0; i < gameObjects.Count; i++)
+
+        while (gameObjects.Count > 0)
         {
-            UnRegisterGameObject(gameObjects[i]);
+            UnRegisterGameObject(gameObjects[0]);
         }
         
         Text winnerText = new(winner == Winner.You?"You Won":"Enemy Won", new Font(Path.Combine(Directory.GetCurrentDirectory (), "Fonts", "Arial.otf")), 30);
-        winnerText.Position = new Vector2f(window.GetWindowCenter().X, window.GetWindowCenter().Y);
+        winnerText.Position = new Vector2f(window.windowCenter.X, window.windowCenter.Y);
         winnerText.FillColor = winner == Winner.You?Color.Green:Color.Red;
+        
+        _saveLoad.SaveProfiles(_profiles);
+        
+        GameLoop.Instance.ReDrawObjects();
+        window.renderWindow.Draw(winnerText);
+        Console.ReadKey();
     }
     
     public void UnRegisterGameObject(GameObject gameObject)
@@ -192,6 +205,8 @@ public class Game
             Stop(Winner.You);
         else if(enemyPlayer.score >= GameSettings.maxShipsAmount)
             Stop(Winner.Enemy);
+        
+        _saveLoad.SaveProfiles(_profiles);
     }
 
 }

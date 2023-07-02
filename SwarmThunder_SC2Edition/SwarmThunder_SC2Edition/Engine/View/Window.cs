@@ -6,6 +6,11 @@ using SFML.Window;
 public class Window
 {
     public RenderWindow renderWindow;
+
+    public Vector2u windowCenter
+    {
+        get => new Vector2u(GameSettings.windowWidth / 2, GameSettings.windowHeight / 2);
+    }
     /*private static View _camera
     {
         get => Game.instance.mainCamera.camera;

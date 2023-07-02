@@ -1,3 +1,4 @@
+using System.Net;
 using SFML.Graphics;
 using SFML.System;
 
@@ -22,11 +23,17 @@ public class GameSettings
     public static GameMode gameMode = GameMode.PvP;
     public static int maxShipsAmount = 1;
     
-    private static string pathToCFG = "CFGs/gameSettings.cfg";
+    private static string pathToCFG = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Documents") + "/WarThunder/CFGs/gameSettings.cfg";
 
     static GameSettings()
     {
+        CreateDirectory();
         Load();
+    }
+
+    private static void CreateDirectory()
+    {
+        Directory.CreateDirectory(pathToCFG);
     }
     public static void Save()
     {
